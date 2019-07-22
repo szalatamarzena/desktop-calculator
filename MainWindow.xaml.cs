@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -74,7 +75,7 @@ namespace Kalkulator
 
         private void ButtonOperationClick(object sender, RoutedEventArgs e)
         {
-            register = double.Parse(Display.Text);
+            register = double.Parse(Display.Text, CultureInfo.InvariantCulture);
 
             switch (((Button)sender).Tag.ToString())
             {
@@ -140,8 +141,8 @@ namespace Kalkulator
                     historyRecord += Display.Text;
                     break;
                 case Operation.Exponentiation:
-                    historyRecord = register.ToString() + "^" + Display.Text + " = ";
-                    Display.Text = (Math.Pow(double.Parse(register), 2)).ToString();
+                    historyRecord = register.ToString() + "^2 = ";
+                    Display.Text = (Math.Pow(register, 2)).ToString();
                     historyRecord += Display.Text;
                     break;
                 case Operation.SquareRoot:
