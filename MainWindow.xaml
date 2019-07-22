@@ -1,0 +1,84 @@
+﻿<Window x:Class="Kalkulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kalkulator"
+        mc:Ignorable="d"
+        Title="Kalkulator" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="5*" />
+            </Grid.RowDefinitions>
+            <TextBox IsEnabled="False" x:Name="Display" Grid.Row="0" FontSize="26" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextAlignment="Right">0</TextBox>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Button Tag="Exponentiation" Click="ButtonOperationClick" Grid.Row="0" Grid.Column="0">
+                    <TextBlock>
+                        <Run>x</Run>
+                        <Run Typography.Variants="Superscript">2</Run>
+                    </TextBlock>
+                </Button>
+                <Button Click="ButtonClearEClick" Grid.Row="0" Grid.Column="1">CE</Button>
+                <Button Click="ButtonClearClick" Grid.Row="0" Grid.Column="2">C</Button>
+                <Button Tag="Exponentiation" Click="ButtonBackspaceClick" Grid.Row="0" Grid.Column="3" Content="&#8592;"></Button>
+                <Button Tag="Division" Click="ButtonOperationClick" Grid.Row="0" Grid.Column="4">/</Button>
+                <Button Tag="SquareRoot" Click="ButtonOperationClick" Grid.Row="1" Grid.Column="0" Content="&#8730;"></Button>
+                <Button Click="ButtonNumberClick" Grid.Row="1" Grid.Column="1">7</Button>
+                <Button Click="ButtonNumberClick" Grid.Row="1" Grid.Column="2">8</Button>
+                <Button Click="ButtonNumberClick" Grid.Row="1" Grid.Column="3">9</Button>
+                <Button Tag="Multiplication" Click="ButtonOperationClick" Grid.Row="1" Grid.Column="4">X</Button>
+                <Button Tag="Logarithm" Click="ButtonOperationClick" Grid.Row="2" Grid.Column="0">
+                    <TextBlock>
+                        <Run>log</Run>
+                        <Run Typography.Variants="Subscript">10</Run>
+                    </TextBlock>
+                </Button>
+                <Button Click="ButtonNumberClick" Grid.Row="2" Grid.Column="1">4</Button>
+                <Button Click="ButtonNumberClick" Grid.Row="2" Grid.Column="2">5</Button>
+                <Button Click="ButtonNumberClick" Grid.Row="2" Grid.Column="3">6</Button>
+                <Button Tag="Subtraction" Click="ButtonOperationClick" Grid.Row="2" Grid.Column="4">-</Button>
+                <Button Tag="Modulo" Click="ButtonOperationClick" Grid.Row="3" Grid.Column="0">Mod</Button>
+                <Button Click="ButtonNumberClick" Grid.Row="3" Grid.Column="1">1</Button>
+                <Button Click="ButtonNumberClick" Grid.Row="3" Grid.Column="2">2</Button>
+                <Button Click="ButtonNumberClick" Grid.Row="3" Grid.Column="3">3</Button>
+                <Button Tag="Addition" Click="ButtonOperationClick" Grid.Row="3" Grid.Column="4">+</Button>
+                <Button Tag="Factorial" Click="ButtonOperationClick" Grid.Row="4" Grid.Column="0">n!</Button>
+                <Button Click="ButtonSignClick" Grid.Row="4" Grid.Column="1">+/-</Button>
+                <Button Click="ButtonNumberClick" Grid.Row="4" Grid.Column="2">0</Button>
+                <Button Click="ButtonDelimiterClick" Grid.Row="4" Grid.Column="3">.</Button>
+                <Button Click="ButtonResultClick" Grid.Row="4" Grid.Column="4">=</Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <ListView x:Name="History">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding}"></TextBlock>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListView>
+        </Grid>
+        </Grid>
+</Window>
