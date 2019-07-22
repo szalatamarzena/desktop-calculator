@@ -141,7 +141,7 @@ namespace Kalkulator
                     break;
                 case Operation.Exponentiation:
                     historyRecord = register.ToString() + "^" + Display.Text + " = ";
-                    Display.Text = (Math.Pow(double.Parse(Display.Text), 2)).ToString();
+                    Display.Text = (Math.Pow(double.Parse(register), 2)).ToString();
                     historyRecord += Display.Text;
                     break;
                 case Operation.SquareRoot:
